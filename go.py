@@ -43,6 +43,9 @@ try:
         print(f"{boxes}, {taExist}")
         for i in boxes:
             driver.find_element_by_id(i).click()
+        driver.find_element_by_id("btSubmit").click()
+        WebDriverWait(driver, 5).until(EC.alert_is_present())
+        driver.switch_to.alert.accept()
         sleep(2)
         
 except TimeoutException:
